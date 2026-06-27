@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SECTION } from "@/lib/content";
 
@@ -9,11 +9,18 @@ const sans = Inter({
   display: "swap",
 });
 
-const display = Space_Grotesk({
+const display = Archivo({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
+});
+
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 const description = `${SECTION.tagline} ${SECTION.org}, part of IEEE Region 8.`;
@@ -50,9 +57,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${display.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cloud text-ink">
+      <body className="min-h-full flex flex-col bg-paper text-ink">
         {children}
       </body>
     </html>

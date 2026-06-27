@@ -1,41 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* IEEE blue + Rwanda-inspired green & sun. Modern, clean, professional. */
-  --color-navy: #06122b;
-  --color-ink: #0c1b3a;
-  --color-blue-700: #00497a;
-  --color-blue-600: #00629b;
-  --color-blue-500: #0a7bc0;
-  --color-blue-300: #6fb4dd;
-  --color-blue-100: #dceaf5;
-  --color-blue-50: #eef5fb;
-  --color-green-600: #138a4a;
-  --color-green-500: #1aa64b;
-  --color-green-100: #dcf3e4;
-  --color-sun: #f7c948;
-  --color-sun-soft: #fce8a8;
-  --color-mist: #f4f7fb;
+  /* Swiss / engineering editorial — flat, confident, no gradients. */
+  --color-paper: #f1efe8;
+  --color-paper-2: #e6e3d8;
+  --color-ink: #15140f;
+  --color-ink-soft: #57544a;
+  --color-blue: #1c3fc4;
+  --color-blue-ink: #122a83;
+  --color-blue-pale: #dfe4f7;
+  --color-sun: #f4b400;
+  --color-green: #1f7a45;
+  --color-line: rgba(21, 20, 15, 0.16);
+  --color-line-soft: rgba(21, 20, 15, 0.08);
   --color-cloud: #ffffff;
-  --color-slate: #5a6781;
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
-
-  --shadow-card: 0 1px 2px rgba(12, 27, 58, 0.04), 0 14px 40px rgba(12, 27, 58, 0.08);
-  --shadow-lift: 0 20px 60px rgba(0, 73, 122, 0.18);
-
-  --radius-card: 16px;
+  --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0c1b3a;
+  --background: #f1efe8;
+  --foreground: #15140f;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -48,45 +40,46 @@ body {
 
 ::selection {
   background: var(--color-sun);
-  color: var(--color-navy);
+  color: var(--color-ink);
 }
 
 .container-x {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1.75rem;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+/* monospace technical label */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+/* sun highlight under a word */
+.mark {
+  background: linear-gradient(var(--color-sun), var(--color-sun)) no-repeat;
+  background-size: 100% 0.32em;
+  background-position: 0 88%;
+  padding-inline: 0.05em;
 }
 
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 2px;
+  background-size: 0% 1.5px;
   background-position: 0 100%;
   background-repeat: no-repeat;
   transition: background-size 0.3s ease;
 }
 .link-underline:hover {
-  background-size: 100% 2px;
-}
-
-/* subtle dotted grid for hero backdrops */
-.dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
-  background-size: 22px 22px;
+  background-size: 100% 1.5px;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up {

@@ -17,23 +17,21 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-blue-100 bg-cloud/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ${
+        scrolled ? "border-line bg-paper/95 backdrop-blur" : "border-transparent"
       }`}
     >
-      <nav className="container-x flex h-16 items-center justify-between">
-        <a href="#top" aria-label="IEEE Rwanda home">
-          <Wordmark className={scrolled ? "text-ink" : "text-ink"} />
+      <nav className="container-x flex h-[60px] items-center justify-between">
+        <a href="#top" aria-label="IEEE Rwanda home" className="text-ink">
+          <Wordmark />
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="link-underline text-sm font-medium text-slate hover:text-ink"
+                className="label text-ink-soft transition-colors hover:text-ink"
               >
                 {l.label}
               </a>
@@ -41,12 +39,12 @@ export default function Header() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <a
             href={SECTION.joinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-cloud shadow-card transition hover:bg-blue-700 sm:inline-block"
+            className="hidden bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-blue sm:inline-block"
           >
             Join IEEE
           </a>
@@ -67,17 +65,17 @@ export default function Header() {
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-blue-100 bg-cloud transition-[max-height] duration-300 lg:hidden ${
+        className={`overflow-hidden border-t border-line bg-paper transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0 border-t-transparent"
         }`}
       >
-        <ul className="container-x flex flex-col py-3">
+        <ul className="container-x flex flex-col py-2">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block border-b border-blue-50 py-3 text-base font-medium text-ink"
+                className="block border-b border-line-soft py-3 text-base font-medium text-ink"
               >
                 {l.label}
               </a>
@@ -89,7 +87,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="block rounded-full bg-blue-600 px-5 py-3 text-center text-base font-semibold text-cloud"
+              className="block bg-ink px-5 py-3 text-center text-base font-semibold text-paper"
             >
               Join IEEE
             </a>

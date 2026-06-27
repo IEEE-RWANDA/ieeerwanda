@@ -22,7 +22,7 @@ export default function ContactForm() {
   }
 
   const field =
-    "w-full rounded-xl border border-blue-100 bg-cloud px-4 py-3 text-sm text-ink outline-none transition placeholder:text-slate/60 focus:border-blue-500 focus:ring-4 focus:ring-blue-100";
+    "w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink-soft/60 focus:border-blue focus:ring-2 focus:ring-blue/20";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -47,18 +47,18 @@ export default function ContactForm() {
       />
       <button
         type="submit"
-        className="w-full rounded-full bg-blue-600 px-6 py-3.5 text-sm font-semibold text-cloud transition hover:bg-blue-700"
+        className="w-full bg-ink px-6 py-3.5 text-sm font-semibold text-paper transition hover:bg-blue"
       >
         Send message
       </button>
       {sent && (
-        <p className="text-center text-sm text-green-600">
+        <p className="text-center text-sm text-green">
           Opening your email app — thanks for reaching out!
         </p>
       )}
-      <p className="text-center text-xs text-slate">
+      <p className="text-center text-xs text-ink-soft">
         Prefer email? Write to{" "}
-        <a href={`mailto:${SECTION.contactEmail}`} className="font-semibold text-blue-600">
+        <a href={`mailto:${SECTION.contactEmail}`} className="font-semibold text-blue">
           {SECTION.contactEmail}
         </a>
       </p>
