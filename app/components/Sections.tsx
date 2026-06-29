@@ -21,18 +21,37 @@ import { LogoBadge, Section, SectionHead } from "./ui";
 
 export function HomeHero() {
   return (
-    <section className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-navy text-cloud">
+    <section className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-navy text-cloud">
+      {/* desktop: ambient video on the right, faded into the navy on the left */}
+      {HERO_VIDEO_ID && (
+        <div className="absolute inset-y-0 right-0 hidden w-[64%] lg:block">
+          <div className="absolute inset-0 overflow-hidden">
+            <iframe
+              title="IEEE Rwanda Launch"
+              src={`https://www.youtube.com/embed/${HERO_VIDEO_ID}?autoplay=1&mute=1&controls=0&loop=1&playlist=${HERO_VIDEO_ID}&playsinline=1&modestbranding=1&rel=0&showinfo=0&disablekb=1&cc_load_policy=0&iv_load_policy=3`}
+              allow="autoplay; encrypted-media"
+              className="pointer-events-none absolute left-1/2 top-1/2 aspect-video h-full w-auto min-w-full -translate-x-1/2 -translate-y-1/2"
+            />
+          </div>
+          {/* fade left → into the dark; gentle top/bottom softening */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
+        </div>
+      )}
+
+      {/* mobile background (video is desktop-only) */}
       <Image
         src="/img/hero-net.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover object-center lg:hidden"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/72 to-navy/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40 lg:hidden" />
 
       <div className="container-x relative z-10 py-16">
+        <div className="max-w-xl">
         <LogoBadge size="h-20" />
         <p className="mt-7 font-display text-sm italic text-gold">
           Welcome to IEEE Rwanda Subsection
@@ -54,6 +73,7 @@ export function HomeHero() {
             Become a member
           </a>
           {HERO_VIDEO_ID && <LaunchVideo id={HERO_VIDEO_ID} />}
+        </div>
         </div>
       </div>
     </section>
