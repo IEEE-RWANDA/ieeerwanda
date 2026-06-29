@@ -14,58 +14,47 @@ import {
 } from "@/lib/content";
 import { FocusGlyph } from "./Icons";
 import ContactForm from "./ContactForm";
-import HeroVideo from "./HeroVideo";
+import LaunchVideo from "./LaunchVideo";
 import { LogoBadge, Section, SectionHead } from "./ui";
 
 /* ---------- Home hero (dark, network background) ---------- */
 
-function HeroCopy() {
-  return (
-    <>
-      <LogoBadge size="h-20" />
-      <p className="mt-7 font-display text-sm italic text-gold">
-        Welcome to IEEE Rwanda Subsection
-      </p>
-      <h1 className="mt-4 max-w-[18ch] font-display text-3xl font-extrabold uppercase leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
-        Harnessing <span className="text-[#3aa6e0]">African Ingenuity</span> to
-        Advance <span className="text-[#3aa6e0]">Technology</span> for Humanity.
-      </h1>
-      <p className="mt-5 max-w-xl text-base leading-relaxed text-cloud/80">
-        {SECTION.tagline}
-      </p>
-    </>
-  );
-}
-
 export function HomeHero() {
   return (
-    <section className="bg-navy text-cloud">
-      {/* 16:9 stage — exactly the video's ratio, so it fills edge to edge */}
-      <div className="relative isolate aspect-video w-full overflow-hidden">
-        {HERO_VIDEO_ID ? (
-          <HeroVideo id={HERO_VIDEO_ID} />
-        ) : (
-          <Image
-            src="/img/hero-net.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-        )}
-        {/* desktop: text overlaid on the video */}
-        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-navy/90 via-navy/65 to-navy/20 lg:block" />
-        <div className="absolute inset-0 z-10 hidden items-center lg:flex">
-          <div className="container-x">
-            <HeroCopy />
-          </div>
-        </div>
-      </div>
+    <section className="relative isolate flex min-h-[560px] items-center overflow-hidden bg-navy text-cloud">
+      <Image
+        src="/img/hero-net.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/92 via-navy/72 to-navy/40" />
 
-      {/* mobile/tablet: text below the video so nothing overlaps a tiny frame */}
-      <div className="container-x py-12 lg:hidden">
-        <HeroCopy />
+      <div className="container-x relative z-10 py-16">
+        <LogoBadge size="h-20" />
+        <p className="mt-7 font-display text-sm italic text-gold">
+          Welcome to IEEE Rwanda Subsection
+        </p>
+        <h1 className="mt-4 max-w-[18ch] font-display text-3xl font-extrabold uppercase leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
+          Harnessing <span className="text-[#3aa6e0]">African Ingenuity</span> to
+          Advance <span className="text-[#3aa6e0]">Technology</span> for Humanity.
+        </h1>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-cloud/80">
+          {SECTION.tagline}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-6">
+          <a
+            href={SECTION.joinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            Become a member
+          </a>
+          {HERO_VIDEO_ID && <LaunchVideo id={HERO_VIDEO_ID} />}
+        </div>
       </div>
     </section>
   );
