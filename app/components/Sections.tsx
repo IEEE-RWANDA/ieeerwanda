@@ -1,384 +1,474 @@
+import Link from "next/link";
+import Image from "next/image";
 import {
-  ABOUT,
   EXECUTIVE,
+  EVENTS,
   FOCUS_AREAS,
+  HERO_VIDEO_ID,
   OPERATIONS,
   SECTION,
-  STATS,
   SUBUNITS,
   TESTIMONIALS,
+  type Group,
   type Member,
 } from "@/lib/content";
 import { FocusGlyph } from "./Icons";
 import ContactForm from "./ContactForm";
+import HeroVideo from "./HeroVideo";
+import { LogoBadge, Section, SectionHead } from "./ui";
 
-/* ---------- shared ---------- */
+/* ---------- Home hero (dark, network background) ---------- */
 
-function Marker({
-  index,
-  label,
-  light = false,
-}: {
-  index: string;
-  label: string;
-  light?: boolean;
-}) {
+function HeroCopy() {
   return (
-    <div
-      className={`flex items-center gap-4 border-t pt-4 ${
-        light ? "border-paper/25" : "border-line"
-      }`}
-    >
-      <span className={`label ${light ? "text-sun" : "text-blue"}`}>{index}</span>
-      <span className={`label ${light ? "text-paper/70" : "text-ink-soft"}`}>
-        {label}
-      </span>
-    </div>
+    <>
+      <LogoBadge size="h-20" />
+      <p className="mt-7 font-display text-sm italic text-gold">
+        Welcome to IEEE Rwanda Subsection
+      </p>
+      <h1 className="mt-4 max-w-[18ch] font-display text-3xl font-extrabold uppercase leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
+        Harnessing <span className="text-[#3aa6e0]">African Ingenuity</span> to
+        Advance <span className="text-[#3aa6e0]">Technology</span> for Humanity.
+      </h1>
+      <p className="mt-5 max-w-xl text-base leading-relaxed text-cloud/80">
+        {SECTION.tagline}
+      </p>
+    </>
   );
 }
 
-/* ---------- Hero ---------- */
-
-export function Hero() {
+export function HomeHero() {
   return (
-    <section id="top" className="pt-[60px]">
-      {/* masthead */}
-      <div className="border-b border-line">
-        <div className="container-x flex flex-wrap items-center justify-between gap-y-1 py-3">
-          <span className="label text-ink-soft">IEEE Region 8 · Africa</span>
-          <span className="label text-ink-soft">Rwanda Subsection</span>
-          <span className="label text-blue">Technology for Humanity</span>
+    <section className="bg-navy text-cloud">
+      {/* 16:9 stage — exactly the video's ratio, so it fills edge to edge */}
+      <div className="relative isolate aspect-video w-full overflow-hidden">
+        {HERO_VIDEO_ID ? (
+          <HeroVideo id={HERO_VIDEO_ID} />
+        ) : (
+          <Image
+            src="/img/hero-net.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        )}
+        {/* desktop: text overlaid on the video */}
+        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-navy/90 via-navy/65 to-navy/20 lg:block" />
+        <div className="absolute inset-0 z-10 hidden items-center lg:flex">
+          <div className="container-x">
+            <HeroCopy />
+          </div>
         </div>
       </div>
 
-      <div className="container-x pt-14 pb-16 sm:pt-20 sm:pb-20">
-        <div className="animate-fade-up">
-          <h1 className="max-w-[18ch] font-display font-extrabold uppercase leading-[0.95] tracking-[-0.02em] text-ink text-[clamp(2.4rem,7vw,5.5rem)]">
-            Harnessing <span className="mark">African ingenuity</span> to advance
-            technology for humanity.
-          </h1>
-
-          <div className="mt-10 grid gap-8 border-t border-line pt-8 md:grid-cols-[1.6fr_1fr]">
-            <p className="max-w-xl text-lg leading-relaxed text-ink-soft">
-              {SECTION.tagline}
-            </p>
-            <div className="flex flex-col items-start gap-4 md:items-end">
-              <a
-                href={SECTION.joinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-ink px-7 py-3.5 text-base font-semibold text-paper transition hover:bg-blue"
-              >
-                Become a member
-              </a>
-              <a href="#about" className="link-underline text-base font-semibold text-ink">
-                Discover IEEE Rwanda →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* stat ledger */}
-        <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden border border-line bg-line lg:grid-cols-4">
-          {STATS.map((s) => (
-            <div key={s.label} className="bg-paper px-5 py-7">
-              <dd className="font-display text-4xl font-extrabold leading-none text-ink sm:text-5xl">
-                {s.value}
-              </dd>
-              <dt className="label mt-3 text-ink-soft">{s.label}</dt>
-            </div>
-          ))}
-        </dl>
+      {/* mobile/tablet: text below the video so nothing overlaps a tiny frame */}
+      <div className="container-x py-12 lg:hidden">
+        <HeroCopy />
       </div>
     </section>
   );
 }
 
-/* ---------- About ---------- */
+/* ---------- About (blue gradient card with photo) ---------- */
 
-export function About() {
+export function AboutBlock() {
   return (
-    <section id="about" className="scroll-mt-20 border-t border-line bg-paper-2 py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="01" label="About the Subsection" />
-        <div className="mt-10 grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+    <Section alt>
+      <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-blue to-blue-ink text-cloud">
+        <div className="grid items-center gap-8 p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 lg:p-12">
           <div>
-            <h2 className="max-w-[14ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight text-ink sm:text-[2.6rem]">
-              {ABOUT.heading}
+            <p className="text-base leading-relaxed text-cloud/90">
+              IEEE Rwanda is a local chapter of the Institute of Electrical and
+              Electronics Engineers. We serve Rwanda&apos;s engineering and
+              technology community by providing a platform for professional
+              development, technical excellence, and innovation.
+            </p>
+            <span className="mt-7 block h-px w-12 bg-cloud/40" />
+            <h2 className="mt-6 font-display text-2xl font-bold sm:text-3xl">
+              Driving Rwanda&apos;s Tech Transformation
             </h2>
-            <div className="mt-7 space-y-4 text-base leading-relaxed text-ink-soft">
-              {ABOUT.body.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-            <a href="#contact" className="link-underline mt-7 inline-block font-semibold text-blue">
-              Get involved →
-            </a>
           </div>
 
-          <div className="self-start bg-blue p-8 text-paper sm:p-10">
-            <p className="font-display text-2xl font-semibold leading-snug">
-              &ldquo;Technology for humanity&rdquo; isn&apos;t a slogan — it&apos;s
-              how we choose the problems worth solving in Rwanda.
-            </p>
-            <dl className="mt-9 grid grid-cols-2 gap-6 border-t border-paper/20 pt-7">
-              <div>
-                <dt className="label text-paper/70">Model</dt>
-                <dd className="mt-1 font-display text-2xl font-bold">Volunteer-led</dd>
-              </div>
-              <div>
-                <dt className="label text-paper/70">Network</dt>
-                <dd className="mt-1 font-display text-2xl font-bold">Global IEEE</dd>
-              </div>
-            </dl>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <Image
+              src="/img/about.jpg"
+              alt="Engineer installing solar panels"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 
-/* ---------- Focus areas ---------- */
+/* ---------- Focus areas (solid colour cards) ---------- */
 
-export function FocusAreas() {
+export function FocusGrid() {
   return (
-    <section id="focus" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="02" label="What we work on" />
-        <h2 className="mt-10 max-w-[16ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight text-ink sm:text-[2.6rem]">
-          Six focus areas pivotal to the SDGs
-        </h2>
-        <p className="mt-4 max-w-xl text-lg text-ink-soft">
-          We concentrate on the sectors where technology can solve real local
-          challenges — and where Rwandan talent can lead.
-        </p>
+    <Section>
+      <SectionHead
+        center
+        eyebrow="Key Focus Areas"
+        title="Pioneering Progress"
+        intro="We concentrate on sectors pivotal to the Sustainable Development Goals, leveraging technology to solve local challenges."
+      />
 
-        <div className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {FOCUS_AREAS.map((f, i) => (
-            <article key={f.title} className="bg-paper p-7 transition-colors hover:bg-paper-2">
-              <div className="flex items-center justify-between text-ink">
-                <FocusGlyph name={f.icon} className="h-7 w-7 text-blue" />
-                <span className="font-display text-2xl font-bold text-line">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="mt-6 font-display text-xl font-bold text-ink">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{f.blurb}</p>
-            </article>
-          ))}
-        </div>
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {FOCUS_AREAS.map((f) => (
+          <article
+            key={f.title}
+            style={{ backgroundColor: f.color }}
+            className="rounded-lg p-7 text-cloud transition-transform duration-200 hover:-translate-y-1"
+          >
+            <FocusGlyph name={f.icon} className="h-9 w-9" />
+            <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-cloud/90">{f.blurb}</p>
+          </article>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
 
 /* ---------- Subunits ---------- */
 
-export function Subunits() {
+export function SubunitsList({
+  alt = false,
+  head = true,
+}: {
+  alt?: boolean;
+  head?: boolean;
+}) {
   return (
-    <section id="subunits" className="scroll-mt-20 border-t border-line bg-paper-2 py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="03" label="Where we're active" />
-        <h2 className="mt-10 max-w-[16ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight text-ink sm:text-[2.6rem]">
-          University subunits
-        </h2>
-        <p className="mt-4 max-w-xl text-lg text-ink-soft">
-          Student branches and partners driving research, learning, and innovation
-          across Rwanda&apos;s leading institutions.
-        </p>
+    <Section alt={alt}>
+      {head && (
+        <SectionHead
+          center
+          eyebrow="Where We're Active"
+          title="Student Branches"
+          intro="University student branches driving research, learning, and innovation across Rwanda's leading institutions."
+        />
+      )}
+      <div className={`${head ? "mt-12" : ""} grid gap-5 md:grid-cols-3`}>
+        {SUBUNITS.map((u) => (
+          <article
+            key={u.short}
+            className="flex flex-col rounded-lg border border-line border-t-4 border-t-blue bg-paper p-7 shadow-sm"
+          >
+            <span className="label text-blue">{u.short}</span>
+            <h3 className="mt-3 font-display text-xl font-bold leading-tight text-navy">
+              {u.name}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">{u.blurb}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  );
+}
 
-        <div className="mt-12 border-t border-line">
-          {SUBUNITS.map((u) => (
+/* ---------- Chapters / affinity groups (generic, reusable) ---------- */
+
+const ACCENT: Record<string, string> = {
+  blue: "border-t-blue",
+  cyan: "border-t-cyan",
+  teal: "border-t-teal",
+};
+
+export function GroupList({
+  eyebrow,
+  title,
+  intro,
+  items,
+  accent = "blue",
+  alt = false,
+}: {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  items: Group[];
+  accent?: "blue" | "cyan" | "teal";
+  alt?: boolean;
+}) {
+  return (
+    <Section alt={alt}>
+      <SectionHead center eyebrow={eyebrow} title={title} intro={intro} />
+      {items.length > 0 ? (
+        <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
+          {items.map((c) => (
             <article
-              key={u.short}
-              className="grid grid-cols-1 items-baseline gap-x-8 gap-y-2 border-b border-line py-7 sm:grid-cols-[7rem_1fr_1.2fr]"
+              key={c.name}
+              className={`flex flex-col rounded-lg border border-line border-t-4 ${ACCENT[accent]} bg-paper p-7 shadow-sm`}
             >
-              <span className="label text-blue">{u.short}</span>
-              <h3 className="font-display text-2xl font-bold leading-tight text-ink">
-                {u.name}
+              <h3 className="font-display text-lg font-bold leading-tight text-navy">
+                {c.name}
               </h3>
-              <p className="text-sm leading-relaxed text-ink-soft sm:pt-1">{u.blurb}</p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-soft">{c.blurb}</p>
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      ) : (
+        <p className="mx-auto mt-8 max-w-md text-center text-ink-soft">
+          Forming soon — interested in starting one?{" "}
+          <Link href="/contact" className="font-semibold text-blue">
+            Get in touch
+          </Link>
+          .
+        </p>
+      )}
+    </Section>
   );
 }
 
 /* ---------- Team ---------- */
 
-function MemberRow({ m, index }: { m: Member; index: number }) {
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((p) => p[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+function MemberCard({ m }: { m: Member }) {
   return (
-    <div className="flex items-baseline gap-5 border-b border-line py-5">
-      <span className="label w-7 flex-none text-ink-soft">
-        {String(index).padStart(2, "0")}
-      </span>
-      <div className="flex flex-1 flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <span className="font-display text-xl font-bold text-ink sm:text-2xl">
-          {m.name}
-        </span>
-        <span className="label text-blue">{m.role}</span>
+    <article className="flex flex-col items-center rounded-lg border border-line bg-paper p-6 text-center shadow-sm">
+      {m.photo ? (
+        <div className="relative h-24 w-24 overflow-hidden rounded-full ring-2 ring-blue/15">
+          <Image
+            src={m.photo}
+            alt={m.name}
+            fill
+            sizes="96px"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <div className="grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-blue to-blue-ink font-display text-xl font-bold text-cloud">
+          {initials(m.name)}
+        </div>
+      )}
+      <h4 className="mt-4 font-display text-lg font-bold text-navy">{m.name}</h4>
+      <span className="label mt-1 text-blue">{m.role}</span>
+    </article>
+  );
+}
+
+function MemberGroup({ title, members }: { title: string; members: Member[] }) {
+  return (
+    <div>
+      <div className="flex items-center gap-3">
+        <span className="h-px flex-1 bg-line" />
+        <h3 className="label text-ink-soft">{title}</h3>
+        <span className="h-px flex-1 bg-line" />
+      </div>
+      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {members.map((m) => (
+          <MemberCard key={m.name} m={m} />
+        ))}
       </div>
     </div>
   );
 }
 
-export function Team() {
+export function TeamBlock({
+  alt = false,
+  head = true,
+}: {
+  alt?: boolean;
+  head?: boolean;
+}) {
   return (
-    <section id="team" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="04" label="Our team" />
-        <h2 className="mt-10 max-w-[18ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight text-ink sm:text-[2.6rem]">
-          The volunteers leading IEEE Rwanda
-        </h2>
-        <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-          Dedicated engineers and technologists harnessing African ingenuity to
-          advance technology for humanity.
-        </p>
-
-        <div className="mt-12 grid gap-x-16 gap-y-10 lg:grid-cols-2">
-          <div>
-            <h3 className="label text-ink-soft">Executive Committee</h3>
-            <div className="mt-3 border-t border-line">
-              {EXECUTIVE.map((m, i) => (
-                <MemberRow key={m.name} m={m} index={i + 1} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="label text-ink-soft">Operations Committee</h3>
-            <div className="mt-3 border-t border-line">
-              {OPERATIONS.map((m, i) => (
-                <MemberRow key={m.name} m={m} index={i + 1} />
-              ))}
-            </div>
-          </div>
-        </div>
+    <Section alt={alt}>
+      {head && (
+        <SectionHead
+          center
+          eyebrow="Our Team"
+          title="The Volunteers Leading IEEE Rwanda"
+          intro="Dedicated engineers and technologists harnessing African ingenuity to advance technology for humanity."
+        />
+      )}
+      <div className={`${head ? "mt-12" : ""} space-y-12`}>
+        <MemberGroup title="Executive Committee" members={EXECUTIVE} />
+        <MemberGroup title="Operations Committee" members={OPERATIONS} />
       </div>
-    </section>
+    </Section>
   );
 }
 
 /* ---------- Events ---------- */
 
-export function Events() {
-  const items = [
-    "Technical workshops & seminars",
-    "Student hackathons & tech challenges",
-    "Research showcases — incl. UMURIRO grid initiative",
-    "Leadership & professional development forums",
-  ];
+export function EventsBlock({
+  alt = false,
+  head = true,
+}: {
+  alt?: boolean;
+  head?: boolean;
+}) {
   return (
-    <section id="events" className="scroll-mt-20 bg-ink py-20 text-paper sm:py-28">
-      <div className="container-x">
-        <Marker index="05" label="Events & programmes" light />
-        <div className="mt-10 grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
-          <div>
-            <h2 className="max-w-[16ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight sm:text-[2.6rem]">
-              Workshops, hackathons, and technical talks — all year round.
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-paper/75">
-              From robotics deep-dives to grid-efficiency research and leadership
-              forums, our subunits run a steady calendar of hands-on events. Follow
-              us to catch the next one.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-x-7 gap-y-3">
-              <a
-                href="#contact"
-                className="bg-sun px-6 py-3 text-sm font-semibold text-ink transition hover:brightness-105"
-              >
-                Get event updates
-              </a>
-              <a
-                href={SECTION.joinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline px-1 py-3 text-sm font-semibold text-paper"
-              >
-                Join to attend →
-              </a>
-            </div>
-          </div>
-
-          <ul className="self-start border-t border-paper/20">
-            {items.map((e) => (
-              <li
-                key={e}
-                className="flex items-baseline gap-4 border-b border-paper/20 py-4 text-paper/90"
-              >
-                <span className="text-sun">→</span>
-                {e}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <Section alt={alt}>
+      {head && (
+        <SectionHead
+          center
+          eyebrow="Events & Programmes"
+          title="Workshops, Hackathons & Technical Talks"
+          intro="Our subunits run a steady, year-round calendar of hands-on events — from robotics deep-dives to grid-efficiency research and leadership forums."
+        />
+      )}
+      <div className={`${head ? "mt-12" : ""} grid gap-5 sm:grid-cols-2`}>
+        {EVENTS.map((e) => (
+          <article
+            key={e.title}
+            className="rounded-lg border border-line bg-paper p-7 shadow-sm"
+          >
+            <span className="label rounded-full bg-blue-pale px-3 py-1 text-blue">
+              {e.kind}
+            </span>
+            <h3 className="mt-4 font-display text-lg font-bold leading-snug text-navy">
+              {e.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{e.blurb}</p>
+          </article>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }
 
-/* ---------- Testimonials ---------- */
+/* ---------- Testimonials + Get in Touch ---------- */
 
-export function Testimonials() {
+export function TestimonialsBlock({ alt = false }: { alt?: boolean }) {
   return (
-    <section className="border-t border-line bg-paper-2 py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="06" label="From our members" />
-        <div className="mt-12 grid gap-x-16 gap-y-12 md:grid-cols-2">
+    <Section alt={alt}>
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* community photo with overlapping Get in Touch card */}
+        <div className="relative">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <Image
+              src="/img/community.jpg"
+              alt="IEEE Rwanda members at a community event"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <Link
+            href="/contact"
+            className="absolute -bottom-6 right-6 left-6 rounded-lg bg-paper p-6 shadow-xl transition hover:shadow-2xl sm:left-auto sm:w-64"
+          >
+            <span className="font-display text-2xl font-bold text-navy">
+              Get in <span className="text-blue">Touch</span>
+            </span>
+            <span className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-blue">
+              Reach the team →
+            </span>
+          </Link>
+        </div>
+
+        {/* quotes */}
+        <div className="grid gap-8 pt-6 sm:grid-cols-2 lg:pt-0">
           {TESTIMONIALS.map((t) => (
-            <figure key={t.name}>
-              <blockquote className="font-display text-2xl font-semibold leading-snug text-ink sm:text-[1.7rem]">
-                &ldquo;{t.quote}&rdquo;
+            <figure key={t.name} className="text-center sm:text-left">
+              <span className="font-display text-5xl leading-none text-line">
+                &rdquo;
+              </span>
+              <blockquote className="mt-1 text-sm leading-relaxed text-ink-soft">
+                {t.quote}
               </blockquote>
-              <figcaption className="mt-5 flex items-baseline gap-3 border-t border-line pt-4">
-                <span className="font-display font-bold text-ink">{t.name}</span>
-                <span className="label text-ink-soft">{t.role}</span>
+              <figcaption className="mt-4">
+                <span className="block font-display font-bold text-navy">
+                  {t.name}
+                </span>
+                <span className="text-xs text-ink-soft">{t.role}</span>
               </figcaption>
             </figure>
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }
 
 /* ---------- Contact ---------- */
 
-export function Contact() {
+export function ContactBlock({
+  alt = false,
+  head = true,
+}: {
+  alt?: boolean;
+  head?: boolean;
+}) {
   const reasons = [
     { t: "Members", d: "Access workshops, mentorship, and global IEEE resources." },
     { t: "Volunteers", d: "Help organize events and lead technical initiatives." },
     { t: "Partners", d: "Collaborate with universities, industry, and government." },
   ];
   return (
-    <section id="contact" className="scroll-mt-20 border-t border-line py-20 sm:py-28">
-      <div className="container-x">
-        <Marker index="07" label="Get involved" />
-        <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-          <div>
-            <h2 className="max-w-[12ch] font-display text-3xl font-bold uppercase leading-[1.02] tracking-tight text-ink sm:text-[2.6rem]">
-              Join the movement
+    <Section alt={alt}>
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          {head ? (
+            <SectionHead
+              eyebrow="Get Involved"
+              title="Join the Movement"
+              intro="Whether you're a student, professional, or partner organization, there's a place for you at IEEE Rwanda."
+            />
+          ) : (
+            <h2 className="font-display text-2xl font-bold text-navy">
+              Ways to get involved
             </h2>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-ink-soft">
-              Whether you&apos;re a student, professional, or partner organization,
-              there&apos;s a place for you at IEEE Rwanda.
-            </p>
-            <dl className="mt-9 border-t border-line">
-              {reasons.map((r, i) => (
-                <div key={r.t} className="flex items-baseline gap-5 border-b border-line py-4">
-                  <span className="label w-7 flex-none text-blue">0{i + 1}</span>
-                  <dt className="font-display text-lg font-bold text-ink">{r.t}</dt>
-                  <dd className="flex-1 text-sm text-ink-soft">{r.d}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div className="border border-line bg-paper-2 p-7 sm:p-8">
-            <ContactForm />
-          </div>
+          )}
+          <dl className="mt-9 border-t border-line">
+            {reasons.map((r, i) => (
+              <div
+                key={r.t}
+                className="flex items-baseline gap-5 border-b border-line py-4"
+              >
+                <span className="label w-7 flex-none text-blue">0{i + 1}</span>
+                <dt className="font-display text-lg font-bold text-navy">{r.t}</dt>
+                <dd className="flex-1 text-sm text-ink-soft">{r.d}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
+
+        <div className="rounded-lg border border-line border-t-4 border-t-blue bg-paper p-7 shadow-sm sm:p-8">
+          <ContactForm />
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ---------- CTA band ---------- */
+
+export function CtaBand() {
+  return (
+    <section className="bg-blue text-cloud">
+      <div className="container-x flex flex-col items-start justify-between gap-6 py-12 sm:flex-row sm:items-center">
+        <div>
+          <h2 className="font-display text-2xl font-bold sm:text-3xl">
+            Ready to build the future with us?
+          </h2>
+          <p className="mt-2 max-w-xl text-cloud/80">
+            Become part of a global network of over 400,000 engineers and
+            technologists.
+          </p>
+        </div>
+        <a
+          href={SECTION.joinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-light flex-none"
+        >
+          Become a member
+        </a>
       </div>
     </section>
   );

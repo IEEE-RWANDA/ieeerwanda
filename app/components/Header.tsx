@@ -1,59 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS, SECTION } from "@/lib/content";
-import Wordmark from "./Wordmark";
+import { LogoBadge } from "./ui";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200 ${
-        scrolled ? "border-line bg-paper/95 backdrop-blur" : "border-transparent"
-      }`}
-    >
-      <nav className="container-x flex h-[60px] items-center justify-between">
-        <a href="#top" aria-label="IEEE Rwanda home" className="text-ink">
-          <Wordmark />
-        </a>
+    <header className="sticky top-0 z-50">
+      <nav className="bg-blue">
+        {/* desktop: logo left, centered links */}
+        <div className="container-x hidden items-center justify-between lg:flex">
+          <Link href="/" aria-label="IEEE Rwanda home" className="py-1.5">
+            <LogoBadge size="h-10" />
+          </Link>
+          <ul className="flex items-center">
+            {NAV_LINKS.map((l) => {
+              const active = isActive(l.href);
+              return (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className={`block px-5 py-4 text-[0.82rem] font-semibold uppercase tracking-wide text-cloud transition-colors ${
+                      active ? "bg-blue-ink" : "hover:bg-blue-ink/60"
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <span aria-hidden className="w-12" />
+        </div>
 
-        <ul className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className="label text-ink-soft transition-colors hover:text-ink"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-4">
-          <a
-            href={SECTION.joinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-blue sm:inline-block"
-          >
-            Join IEEE
-          </a>
+        {/* mobile: logo + hamburger */}
+        <div className="container-x flex items-center justify-between py-2 lg:hidden">
+          <Link href="/" aria-label="IEEE Rwanda home">
+            <LogoBadge size="h-9" />
+          </Link>
           <button
             type="button"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-10 w-10 place-items-center text-ink lg:hidden"
+            className="grid h-9 w-9 place-items-center text-cloud"
           >
             <div className="space-y-1.5">
               <span className={`block h-0.5 w-6 bg-current transition ${open ? "translate-y-2 rotate-45" : ""}`} />
@@ -64,30 +62,33 @@ export default function Header() {
         </div>
       </nav>
 
+      {/* mobile menu */}
       <div
-        className={`overflow-hidden border-t border-line bg-paper transition-[max-height] duration-300 lg:hidden ${
-          open ? "max-h-96" : "max-h-0 border-t-transparent"
+        className={`overflow-hidden bg-blue-ink transition-[max-height] duration-300 lg:hidden ${
+          open ? "max-h-96" : "max-h-0"
         }`}
       >
-        <ul className="container-x flex flex-col py-2">
+        <ul className="container-x flex flex-col py-1">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block border-b border-line-soft py-3 text-base font-medium text-ink"
+                className={`block border-b border-cloud/15 py-3 text-sm font-semibold uppercase tracking-wide text-cloud ${
+                  isActive(l.href) ? "text-gold" : ""
+                }`}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
-          <li className="pt-4">
+          <li className="py-3">
             <a
               href={SECTION.joinUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="block bg-ink px-5 py-3 text-center text-base font-semibold text-paper"
+              className="btn btn-light w-full"
             >
               Join IEEE
             </a>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SECTION } from "@/lib/content";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 const sans = Inter({
   variable: "--font-sans",
@@ -60,7 +62,9 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

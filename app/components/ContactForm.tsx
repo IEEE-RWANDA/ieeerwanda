@@ -45,10 +45,7 @@ export default function ContactForm() {
         placeholder="How would you like to get involved?"
         className={`${field} resize-none`}
       />
-      <button
-        type="submit"
-        className="w-full bg-ink px-6 py-3.5 text-sm font-semibold text-paper transition hover:bg-blue"
-      >
+      <button type="submit" className="btn btn-primary w-full">
         Send message
       </button>
       {sent && (
