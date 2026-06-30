@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      <nav className="bg-blue">
+      <nav className="bg-navy">
         {/* desktop: logo left, centered links */}
         <div className="container-x hidden items-center justify-between lg:flex">
           <Link href="/" aria-label="IEEE Rwanda home" className="py-1.5">
@@ -28,8 +28,10 @@ export default function Header() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`block px-5 py-4 text-[0.82rem] font-semibold uppercase tracking-wide text-cloud transition-colors ${
-                      active ? "bg-blue-ink" : "hover:bg-blue-ink/60"
+                    className={`relative block px-5 py-4 text-[0.82rem] font-semibold uppercase tracking-wide transition-colors after:absolute after:inset-x-5 after:bottom-3 after:h-0.5 after:bg-gold after:transition-transform after:duration-200 ${
+                      active
+                        ? "text-gold after:scale-x-100"
+                        : "text-cloud after:scale-x-0 hover:text-gold hover:after:scale-x-100"
                     }`}
                   >
                     {l.label}

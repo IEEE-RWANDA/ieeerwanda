@@ -1,20 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
 
-/* ---------- Logo badge (white card holding the section logo) ---------- */
+/* ---------- Section logo ---------- */
+// Full-color logo sits flush (no backdrop). It reads on the dark navy UI;
+// keep navy behind it wherever it appears.
 
 export function LogoBadge({ size = "h-16" }: { size?: string }) {
   return (
-    <span className="inline-block overflow-hidden rounded-xl bg-paper shadow-lg ring-1 ring-black/5">
-      <Image
-        src="/img/logo.png"
-        alt="IEEE Rwanda Subsection"
-        width={311}
-        height={161}
-        priority
-        className={`${size} w-auto`}
-      />
-    </span>
+    <Image
+      src="/img/logo.png"
+      alt="IEEE Rwanda Subsection"
+      width={311}
+      height={161}
+      priority
+      className={`${size} w-auto`}
+    />
   );
 }
 
@@ -32,7 +32,7 @@ export function PageHero({
   crumb: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-blue to-blue-ink text-cloud">
+    <section className="bg-gradient-to-br from-navy to-navy-2 text-cloud">
       <div className="container-x py-12 sm:py-14">
         <LogoBadge size="h-14" />
         <nav className="label mt-6 flex items-center gap-2 text-cloud/70">
