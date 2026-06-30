@@ -9,8 +9,8 @@ export function LogoBadge({ size = "h-16" }: { size?: string }) {
       <Image
         src="/img/logo.png"
         alt="IEEE Rwanda Subsection"
-        width={500}
-        height={500}
+        width={311}
+        height={161}
         priority
         className={`${size} w-auto`}
       />
