@@ -137,14 +137,42 @@ export const SUBUNITS: Subunit[] = [
 // /student-branches route. Edit these three arrays to manage that page.
 // An empty array renders a friendly "coming soon" state.
 
-export type Group = { name: string; blurb: string };
+// `url` is optional — add a society's own website once it goes live and the
+// card renders a "Visit website" link.
+export type Group = { name: string; blurb: string; url?: string };
 
-// Joint technical society chapters.
+// Technical society chapters. Societies with their own website link out to it;
+// the rest remain joint chapters until they launch dedicated sites.
 export const CHAPTERS: Group[] = [
   {
-    name: "Joint MTT-S / AP-S / ComSoc Chapter",
+    name: "Communications Society (ComSoc)",
     blurb:
-      "Microwave theory & techniques, antennas & propagation, and communications — the technologies behind modern connectivity.",
+      "Networks, wireless, and the communications technologies connecting the world.",
+    url: "https://comsoc.ieeerwanda.org/",
+  },
+  {
+    name: "Industrial Electronics Society (IES)",
+    blurb:
+      "Industrial and manufacturing automation, control, robotics, and power electronics.",
+    url: "https://ies.ieeerwanda.org/",
+  },
+  {
+    name: "Microwave Theory & Technology Society (MTT-S)",
+    blurb:
+      "Microwave theory & techniques — RF, wireless, and high-frequency systems behind modern connectivity.",
+    // url: coming soon
+  },
+  {
+    name: "Aerospace & Electronic Systems Society (AESS)",
+    blurb:
+      "Aerospace and electronic systems — radar, navigation, avionics, and autonomous platforms.",
+    // url: coming soon
+  },
+  {
+    name: "Geoscience & Remote Sensing Society (GRSS)",
+    blurb:
+      "Earth observation, satellite imaging, and remote sensing for environmental monitoring.",
+    // url: coming soon
   },
   {
     name: "Joint PELS / PES / IAS Chapter",
@@ -155,11 +183,6 @@ export const CHAPTERS: Group[] = [
     name: "Joint SPS / CASS Chapter",
     blurb:
       "Signal processing and circuits & systems — from algorithms to the silicon that runs them.",
-  },
-  {
-    name: "IES Chapter",
-    blurb:
-      "Industrial Electronics Society — advancing industrial and manufacturing automation, control, and robotics.",
   },
 ];
 

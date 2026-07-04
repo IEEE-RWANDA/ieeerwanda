@@ -209,6 +209,17 @@ export function GroupList({
                 {c.name}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">{c.blurb}</p>
+              {c.url && (
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline mt-auto inline-flex items-center gap-1 self-start pt-5 text-sm font-semibold text-blue"
+                >
+                  Visit website
+                  <span aria-hidden>→</span>
+                </a>
+              )}
             </article>
           ))}
         </div>
