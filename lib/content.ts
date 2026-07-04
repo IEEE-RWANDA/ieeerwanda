@@ -160,19 +160,19 @@ export const CHAPTERS: Group[] = [
     name: "Microwave Theory & Technology Society (MTT-S)",
     blurb:
       "Microwave theory & techniques — RF, wireless, and high-frequency systems behind modern connectivity.",
-    // url: coming soon
+    url: "https://mtts.ieeerwanda.org/",
   },
   {
     name: "Aerospace & Electronic Systems Society (AESS)",
     blurb:
       "Aerospace and electronic systems — radar, navigation, avionics, and autonomous platforms.",
-    // url: coming soon
+    url: "https://aess.ieeerwanda.org/",
   },
   {
     name: "Geoscience & Remote Sensing Society (GRSS)",
     blurb:
       "Earth observation, satellite imaging, and remote sensing for environmental monitoring.",
-    // url: coming soon
+    url: "https://grss.ieeerwanda.org/",
   },
   {
     name: "Joint PELS / PES / IAS Chapter",
