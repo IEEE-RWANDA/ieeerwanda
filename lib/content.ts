@@ -1,3 +1,10 @@
+import CHAPTERS_DATA from "@/content/chapters.json";
+import AFFINITY_GROUPS_DATA from "@/content/affinity-groups.json";
+import EXECUTIVE_DATA from "@/content/executive.json";
+import OPERATIONS_DATA from "@/content/operations.json";
+import EVENTS_DATA from "@/content/events.json";
+import TESTIMONIALS_DATA from "@/content/testimonials.json";
+
 // Single source of truth for the IEEE Rwanda Subsection website.
 // Content adapted from the existing r8.ieee.org/rwanda WordPress site.
 
@@ -143,83 +150,16 @@ export type Group = { name: string; blurb: string; url?: string };
 
 // Technical society chapters. Societies with their own website link out to it;
 // the rest remain joint chapters until they launch dedicated sites.
-export const CHAPTERS: Group[] = [
-  {
-    name: "Communications Society (ComSoc)",
-    blurb:
-      "Networks, wireless, and the communications technologies connecting the world.",
-    url: "https://comsoc.ieeerwanda.org/",
-  },
-  {
-    name: "Industrial Electronics Society (IES)",
-    blurb:
-      "Industrial and manufacturing automation, control, robotics, and power electronics.",
-    url: "https://ies.ieeerwanda.org/",
-  },
-  {
-    name: "Microwave Theory & Technology Society (MTT-S)",
-    blurb:
-      "Microwave theory & techniques — RF, wireless, and high-frequency systems behind modern connectivity.",
-    url: "https://mtts.ieeerwanda.org/",
-  },
-  {
-    name: "Aerospace & Electronic Systems Society (AESS)",
-    blurb:
-      "Aerospace and electronic systems — radar, navigation, avionics, and autonomous platforms.",
-    url: "https://aess.ieeerwanda.org/",
-  },
-  {
-    name: "Geoscience & Remote Sensing Society (GRSS)",
-    blurb:
-      "Earth observation, satellite imaging, and remote sensing for environmental monitoring.",
-    url: "https://grss.ieeerwanda.org/",
-  },
-  {
-    name: "Joint PELS / PES / IAS Chapter",
-    blurb:
-      "Power electronics, power & energy systems, and industry applications driving sustainable energy and electrification.",
-  },
-  {
-    name: "Joint SPS / CASS Chapter",
-    blurb:
-      "Signal processing and circuits & systems — from algorithms to the silicon that runs them.",
-  },
-];
+export const CHAPTERS: Group[] = CHAPTERS_DATA as Group[];
 
 // Affinity groups.
-export const AFFINITY_GROUPS: Group[] = [
-  {
-    name: "Women in Engineering (WIE)",
-    blurb:
-      "Promoting women engineers and scientists, and inspiring girls to pursue careers in engineering and technology.",
-  },
-  {
-    name: "Young Professionals (YP)",
-    blurb:
-      "Supporting recent graduates and early-career members as they transition from student life into the profession.",
-  },
-  {
-    name: "SIGHT",
-    blurb:
-      "Special Interest Group on Humanitarian Technology — applying engineering to local development challenges.",
-  },
-];
+export const AFFINITY_GROUPS: Group[] = AFFINITY_GROUPS_DATA as Group[];
 
 export type Member = { name: string; role: string; photo?: string };
 
-export const EXECUTIVE: Member[] = [
-  { name: "Cyiza Augustin", role: "Chair", photo: "/img/team/cyiza.jpg" },
-  { name: "Samantha Niyoyita", role: "Vice Chair", photo: "/img/team/samantha.jpg" },
-  { name: "Kipngeno Koech", role: "Treasurer", photo: "/img/team/kip.jpg" },
-  { name: "Gentille Uwera", role: "Secretary", photo: "/img/team/gentille.jpg" },
-];
+export const EXECUTIVE: Member[] = EXECUTIVE_DATA as Member[];
 
-export const OPERATIONS: Member[] = [
-  { name: "Jonathan Simenya", role: "Media Coordinator", photo: "/img/team/jonathan.png" },
-  { name: "Samuel Chukwuma", role: "Operations & Logistics Lead", photo: "/img/team/samuel.jpg" },
-  { name: "Furaha Benedict", role: "Media Volunteer", photo: "/img/team/furaha.jpg" },
-  { name: "Sean Mavhima", role: "Media Volunteer", photo: "/img/team/sean.jpg" },
-];
+export const OPERATIONS: Member[] = OPERATIONS_DATA as Member[];
 
 export type Testimonial = { quote: string; name: string; role: string };
 
@@ -229,44 +169,6 @@ export type EventItem = {
   blurb: string;
 };
 
-export const EVENTS: EventItem[] = [
-  {
-    title: "Technical workshops & seminars",
-    kind: "Workshops",
-    blurb:
-      "Hands-on sessions on emerging engineering topics, led by members and industry partners.",
-  },
-  {
-    title: "Student hackathons & tech challenges",
-    kind: "Hackathons",
-    blurb:
-      "Build-focused competitions where student branches turn ideas into working prototypes.",
-  },
-  {
-    title: "Research showcases — incl. UMURIRO grid initiative",
-    kind: "Research",
-    blurb:
-      "Presentations of member research, including CMU-Africa's cross-border power-grid work.",
-  },
-  {
-    title: "Leadership & professional development forums",
-    kind: "Forums",
-    blurb:
-      "Career, mentorship, and leadership programmes that grow Rwanda's engineering talent.",
-  },
-];
+export const EVENTS: EventItem[] = EVENTS_DATA as EventItem[];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    quote:
-      "The community gave me the space to explore robotics and intelligent systems in ways I never imagined. Through it, I've collaborated with fellow innovators and gained a lot of hands-on experience.",
-    name: "Eric",
-    role: "Member",
-  },
-  {
-    quote:
-      "Being part of IEEE Rwanda has accelerated my growth. The workshops, mentorship sessions, and global resources keep me ahead in a fast-changing tech landscape.",
-    name: "Alice Umutoni",
-    role: "Member",
-  },
-];
+export const TESTIMONIALS: Testimonial[] = TESTIMONIALS_DATA as Testimonial[];

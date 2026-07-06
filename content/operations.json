@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Jonathan Simenya",
+    "role": "Media Coordinator",
+    "photo": "/img/team/jonathan.png"
+  },
+  {
+    "name": "Samuel Chukwuma",
+    "role": "Operations & Logistics Lead",
+    "photo": "/img/team/samuel.jpg"
+  },
+  {
+    "name": "Furaha Benedict",
+    "role": "Media Volunteer",
+    "photo": "/img/team/furaha.jpg"
+  },
+  {
+    "name": "Sean Mavhima",
+    "role": "Media Volunteer",
+    "photo": "/img/team/sean.jpg"
+  }
+]

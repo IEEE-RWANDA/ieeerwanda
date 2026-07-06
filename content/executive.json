@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Cyiza Augustin",
+    "role": "Chair",
+    "photo": "/img/team/cyiza.jpg"
+  },
+  {
+    "name": "Samantha Niyoyita",
+    "role": "Vice Chair",
+    "photo": "/img/team/samantha.jpg"
+  },
+  {
+    "name": "Kipngeno Koech",
+    "role": "Treasurer",
+    "photo": "/img/team/kip.jpg"
+  },
+  {
+    "name": "Gentille Uwera",
+    "role": "Secretary",
+    "photo": "/img/team/gentille.jpg"
+  }
+]
