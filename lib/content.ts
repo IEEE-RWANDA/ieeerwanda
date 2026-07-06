@@ -167,6 +167,7 @@ export type EventItem = {
   title: string;
   kind: string;
   blurb: string;
+  image?: string;
 };
 
 export const EVENTS: EventItem[] = EVENTS_DATA as EventItem[];

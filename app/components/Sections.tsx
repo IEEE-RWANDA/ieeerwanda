@@ -338,6 +338,17 @@ export function EventsBlock({
             key={e.title}
             className="rounded-lg border border-line bg-paper p-7 shadow-sm"
           >
+            {e.image && (
+              <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg">
+                <Image
+                  src={e.image}
+                  alt={e.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
             <span className="label rounded-full bg-blue-pale px-3 py-1 text-blue">
               {e.kind}
             </span>
