@@ -12,7 +12,7 @@ export function LogoBadge({ size = "h-16" }: { size?: string }) {
       alt="IEEE Rwanda Subsection"
       width={311}
       height={161}
-      priority
+      preload
       className={`${size} w-auto`}
     />
   );
@@ -32,10 +32,9 @@ export function PageHero({
   crumb: string;
 }) {
   return (
-    <section className="bg-gradient-to-br from-navy to-navy-2 text-cloud">
-      <div className="container-x py-12 sm:py-14">
-        <LogoBadge size="h-14" />
-        <nav className="label mt-6 flex items-center gap-2 text-cloud/70">
+    <section className="page-hero bg-navy text-cloud">
+      <div className="container-x py-14 sm:py-20">
+        <nav aria-label="Breadcrumb" className="label flex items-center gap-2 text-cloud/70">
           <Link href="/" className="hover:text-cloud">
             Home
           </Link>
@@ -44,7 +43,7 @@ export function PageHero({
         </nav>
 
         <p className="label mt-6 text-cloud/80">{eyebrow}</p>
-        <h1 className="mt-3 max-w-[20ch] font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+        <h1 className="mt-3 max-w-[24ch] font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
           {title}
         </h1>
         {subtitle && (
@@ -95,7 +94,7 @@ export function SectionHead({
 }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className="label flex items-center gap-3 text-blue">
+      <p className={`label flex items-center gap-3 text-blue ${center ? "justify-center" : ""}`}>
         {!center && <span className="h-px w-8 bg-blue" />}
         {eyebrow}
       </p>

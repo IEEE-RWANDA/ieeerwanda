@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { PageHero } from "@/app/components/ui";
 import {
   AboutBlock,
-  CtaBand,
   SubunitsList,
   TestimonialsBlock,
 } from "@/app/components/Sections";
@@ -21,7 +20,6 @@ export default function AboutPage() {
       <AboutBlock />
       <SubunitsList alt />
       <TestimonialsBlock />
-      <CtaBand />
     </>
   );
 }

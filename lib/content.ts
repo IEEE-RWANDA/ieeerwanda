@@ -1,5 +1,6 @@
 import CHAPTERS_DATA from "@/content/chapters.json";
 import AFFINITY_GROUPS_DATA from "@/content/affinity-groups.json";
+import COMMUNITIES_DATA from "@/content/communities.json";
 import EXECUTIVE_DATA from "@/content/executive.json";
 import OPERATIONS_DATA from "@/content/operations.json";
 import EVENTS_DATA from "@/content/events.json";
@@ -25,11 +26,9 @@ export const SECTION = {
 export const HERO_VIDEO_ID = "JHVWeyr0tiM";
 
 export const SOCIALS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
-  { label: "Twitter", href: "https://twitter.com/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/ieeerwanda/" },
   { label: "Instagram", href: "https://www.instagram.com/" },
   { label: "YouTube", href: "https://www.youtube.com/" },
-  { label: "Facebook", href: "https://www.facebook.com/" },
 ];
 
 export const NAV_LINKS = [
@@ -123,6 +122,7 @@ export type Subunit = {
   name: string;
   short: string;
   blurb: string;
+  url?: string;
 };
 
 export const SUBUNITS: Subunit[] = [
@@ -138,10 +138,17 @@ export const SUBUNITS: Subunit[] = [
     blurb:
       "A highly active unit organizing workshops and seminars that keep members current with the latest engineering advancements.",
   },
+  {
+    name: "African Leadership University",
+    short: "ALU",
+    blurb:
+      "Connecting students through IEEE to explore engineering and technology, build skills, and collaborate.",
+    url: "https://alu.ieeerwanda.org/",
+  },
 ];
 
-// Student branches, chapters and affinity groups all live under the
-// /student-branches route. Edit these three arrays to manage that page.
+// Student branches, chapters, affinity groups and communities all live under the
+// /student-branches route. Edit these arrays to manage that page.
 // An empty array renders a friendly "coming soon" state.
 
 // `url` is optional — add a society's own website once it goes live and the
@@ -154,6 +161,8 @@ export const CHAPTERS: Group[] = CHAPTERS_DATA as Group[];
 
 // Affinity groups.
 export const AFFINITY_GROUPS: Group[] = AFFINITY_GROUPS_DATA as Group[];
+
+export const COMMUNITIES: Group[] = COMMUNITIES_DATA as Group[];
 
 export type Member = { name: string; role: string; photo?: string };
 
@@ -168,6 +177,18 @@ export type EventItem = {
   kind: string;
   blurb: string;
   image?: string;
+  imageAlt?: string;
+  imageCaption?: string;
+  imageSource?: string;
+  galleryUrl?: string;
+  galleryLabel?: string;
+  date: string;
+  endDate?: string;
+  time?: string;
+  location: string;
+  url: string;
+  registrationUrl?: string;
+  note?: string;
 };
 
 export const EVENTS: EventItem[] = EVENTS_DATA as EventItem[];

@@ -1,22 +1,111 @@
 [
   {
-    "title": "Technical workshops & seminars",
-    "kind": "Workshops",
-    "blurb": "Hands-on sessions on emerging engineering topics, led by members and industry partners."
+    "title": "IEEE East Africa Leadership, Innovation & Design Synergy",
+    "kind": "Regional gathering",
+    "date": "2026-10-15",
+    "time": "Starts 9:00 AM",
+    "location": "CMU-Africa, Room A203, Kigali",
+    "blurb": "A gathering of innovators, students, and technology leaders from across East Africa, with two days of ideas, collaboration, and connections.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7509264551507283968/",
+    "registrationUrl": "https://events.vtools.ieee.org/m/579615",
+    "endDate": "2026-10-16",
+    "note": "Registration is closed. See event details for the programme."
   },
   {
-    "title": "Student hackathons & tech challenges",
-    "kind": "Hackathons",
-    "blurb": "Build-focused competitions where student branches turn ideas into working prototypes."
+    "title": "IEEE Africa Research Paper Workshop",
+    "kind": "Research workshop",
+    "date": "2026-11-14",
+    "time": "8:00 AM–5:00 PM",
+    "location": "Carnegie Mellon University Africa, Kigali",
+    "blurb": "A practical day moving from a research idea to a publishable paper: frame the work, build the evidence, write, and connect with the research community.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7509506686479650816/",
+    "registrationUrl": "https://lnkd.in/dbMG-D2u"
   },
   {
-    "title": "Research showcases — incl. UMURIRO grid initiative",
-    "kind": "Research",
-    "blurb": "Presentations of member research, including CMU-Africa's cross-border power-grid work."
+    "title": "IEEE Meet & Greet at ALU",
+    "kind": "Student community",
+    "date": "2026-09-18",
+    "location": "African Leadership University, Rwanda",
+    "blurb": "An introduction to IEEE membership, research opportunities, technical societies, and building an IEEE student community at ALU.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7493413041053536256/",
+    "image": "/img/events/alu-community.jpg",
+    "imageAlt": "ALU students attending an IEEE community gathering",
+    "imageCaption": "ALU community photo · IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55453238479/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720335078644/",
+    "galleryLabel": "View ALU gallery"
   },
   {
-    "title": "Leadership & professional development forums",
-    "kind": "Forums",
-    "blurb": "Career, mentorship, and leadership programmes that grow Rwanda's engineering talent."
+    "title": "TechX Rwanda 2026",
+    "kind": "Technology & mentorship",
+    "date": "2026-09-04",
+    "endDate": "2026-09-05",
+    "location": "University of Rwanda, Nyarugenge Campus",
+    "blurb": "Two days of technical learning, mentorship, and a hackathon, with conversations spanning AI, cybersecurity, cloud computing, and career development.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7501260887438098432/",
+    "image": "/img/events/techx.jpg",
+    "imageAlt": "TechX Rwanda participants together with an IEEE sign",
+    "imageCaption": "IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55533926524/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720335659242/",
+    "galleryLabel": "View event photos"
+  },
+  {
+    "title": "IEEE Rwanda Metaverse Workshop",
+    "kind": "Technical workshop",
+    "date": "2026-09-01",
+    "time": "2:00 PM",
+    "location": "Career Center Building, 7th Floor, Kigali",
+    "blurb": "A conversation with Jeewika Ranaweera on the industrial metaverse, digital inclusion, and responsible innovation.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7500173836085080064/",
+    "image": "/img/events/metaverse.jpg",
+    "imageAlt": "Participants and presenters at the industrial metaverse workshop",
+    "imageCaption": "IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55509758915/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720335461977/",
+    "galleryLabel": "View event photos"
+  },
+  {
+    "title": "Imagine More with IEEE",
+    "kind": "Student introduction",
+    "date": "2026-08-06",
+    "time": "2:30 PM",
+    "location": "DEC, Carnegie Mellon University Africa, Kigali",
+    "blurb": "An introduction to the IEEE community and the opportunities for students to learn, connect, and contribute beyond the classroom.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7490886425953910784/",
+    "image": "/img/events/imagine-more.jpg",
+    "imageAlt": "IEEE student volunteers at the CMU-Africa orientation session",
+    "imageCaption": "IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55538475350/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720335700301/",
+    "galleryLabel": "View event photos"
+  },
+  {
+    "title": "Volkswagen Mobility Solutions Rwanda visit",
+    "kind": "Industry visit",
+    "date": "2026-07-24",
+    "location": "Volkswagen Mobility Solutions Rwanda",
+    "blurb": "Students explored vehicle assembly and the connections between classroom learning, engineering careers, and industry.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7485323987883999232/",
+    "image": "/img/events/volkswagen.jpg",
+    "imageAlt": "Participants arriving for the Volkswagen industrial visit",
+    "imageCaption": "IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55421033473/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720334873689/",
+    "galleryLabel": "View event photos"
+  },
+  {
+    "title": "IEEE Rwanda Subsection Launch",
+    "kind": "Community milestone",
+    "date": "2026-07-17",
+    "location": "Career Center, 7th Floor, Kigali",
+    "blurb": "Students, professionals, researchers, and IEEE partners came together to celebrate the launch of the Rwanda Subsection.",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7482450069162463233/",
+    "image": "/img/landing/ieee-rwanda-flickr-hero.jpg",
+    "imageAlt": "IEEE Rwanda volunteers at the subsection launch",
+    "imageCaption": "IEEE Rwanda / Flickr",
+    "imageSource": "https://www.flickr.com/photos/ieeerwanda/55405350816/",
+    "galleryUrl": "https://www.flickr.com/photos/ieeerwanda/albums/72177720334769303/",
+    "galleryLabel": "View event photos"
   }
 ]

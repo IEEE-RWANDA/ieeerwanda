@@ -14,12 +14,13 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50">
-      <nav className="bg-navy">
+    <header className="sticky top-0 z-50 shadow-sm">
+      <div className="bg-navy-2 text-cloud/70"><div className="container-x flex items-center justify-between py-2 text-[0.65rem] tracking-wide"><span>IEEE Rwanda Subsection</span><a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">Part of the global IEEE community ↗</a></div></div>
+      <nav aria-label="Main navigation" className="bg-navy">
         {/* desktop: logo left, centered links */}
         <div className="container-x hidden items-center justify-between lg:flex">
-          <Link href="/" aria-label="IEEE Rwanda home" className="py-1.5">
-            <LogoBadge size="h-10" />
+          <Link href="/" aria-label="IEEE Rwanda home" className="py-3">
+            <LogoBadge size="h-12" />
           </Link>
           <ul className="flex items-center">
             {NAV_LINKS.map((l) => {
@@ -28,7 +29,8 @@ export default function Header() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`relative block px-5 py-4 text-[0.82rem] font-semibold uppercase tracking-wide transition-colors after:absolute after:inset-x-5 after:bottom-3 after:h-0.5 after:bg-gold after:transition-transform after:duration-200 ${
+                    aria-current={active ? "page" : undefined}
+                    className={`relative block px-3 py-6 text-[0.82rem] font-semibold tracking-wide transition-colors after:absolute after:inset-x-3 after:bottom-3 after:h-0.5 after:bg-gold after:transition-transform after:duration-200 ${
                       active
                         ? "text-gold after:scale-x-100"
                         : "text-cloud after:scale-x-0 hover:text-gold hover:after:scale-x-100"
@@ -40,7 +42,7 @@ export default function Header() {
               );
             })}
           </ul>
-          <span aria-hidden className="w-12" />
+          <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-light">Join IEEE ↗</a>
         </div>
 
         {/* mobile: logo + hamburger */}
@@ -52,6 +54,7 @@ export default function Header() {
             type="button"
             aria-label="Toggle menu"
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
             className="grid h-9 w-9 place-items-center text-cloud"
           >
@@ -66,6 +69,8 @@ export default function Header() {
 
       {/* mobile menu */}
       <div
+        id="mobile-navigation"
+        inert={!open}
         className={`overflow-hidden bg-blue-ink transition-[max-height] duration-300 lg:hidden ${
           open ? "max-h-96" : "max-h-0"
         }`}
@@ -75,6 +80,7 @@ export default function Header() {
             <li key={l.href}>
               <Link
                 href={l.href}
+                aria-current={isActive(l.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={`block border-b border-cloud/15 py-3 text-sm font-semibold uppercase tracking-wide text-cloud ${
                   isActive(l.href) ? "text-gold" : ""

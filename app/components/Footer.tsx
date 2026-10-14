@@ -13,9 +13,7 @@ const LEGAL_LINKS = [
 type IconName = "linkedin" | "twitter" | "facebook" | "youtube" | "instagram";
 
 const SOCIAL_ICONS: { name: IconName; href: string; label: string }[] = [
-  { name: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/" },
-  { name: "twitter", label: "Twitter", href: "https://twitter.com/" },
-  { name: "facebook", label: "Facebook", href: "https://www.facebook.com/" },
+  { name: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/company/ieeerwanda/" },
   { name: "youtube", label: "YouTube", href: "https://www.youtube.com/" },
   { name: "instagram", label: "Instagram", href: "https://www.instagram.com/" },
 ];
@@ -60,8 +58,9 @@ function SocialGlyph({ name }: { name: IconName }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-blue text-cloud">
+    <footer className="bg-navy-2 text-cloud">
       <div className="container-x py-12">
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-6 border-b border-cloud/15 pb-10"><div><p className="font-display text-3xl font-bold">IEEE Rwanda</p><p className="mt-3 text-cloud/70">Advancing technology. Growing together.</p></div><Link href="/student-branches" className="font-semibold text-cloud">Discover our communities ↗</Link></div>
         <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {LEGAL_LINKS.map((l) => (
             <li key={l.label}>

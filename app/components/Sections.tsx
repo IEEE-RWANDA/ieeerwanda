@@ -2,9 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   EXECUTIVE,
-  EVENTS,
   FOCUS_AREAS,
-  HERO_VIDEO_ID,
   OPERATIONS,
   SECTION,
   SUBUNITS,
@@ -14,93 +12,42 @@ import {
 } from "@/lib/content";
 import { FocusGlyph } from "./Icons";
 import ContactForm from "./ContactForm";
-import LaunchVideo from "./LaunchVideo";
-import SideVideo from "./SideVideo";
-import { LogoBadge, Section, SectionHead } from "./ui";
+import EventDirectory from "./EventDirectory";
+import { kigaliDate } from "@/lib/events";
+import { Section, SectionHead } from "./ui";
 
 /* ---------- Home hero (dark, network background) ---------- */
 
 export function HomeHero() {
   return (
-    <section className="relative isolate flex min-h-[600px] items-center overflow-hidden bg-navy text-cloud">
-      {/* desktop: ambient video on the right, faded into the navy on the left */}
-      {HERO_VIDEO_ID && (
-        <div className="absolute inset-y-0 right-0 hidden w-[64%] lg:block">
-          <SideVideo id={HERO_VIDEO_ID} />
+    <section className="home-hero">
+      <div className="container-x hero-layout">
+        <div className="hero-copy animate-fade-up">
+          <p className="label text-blue">IEEE Rwanda · Technology for humanity</p>
+          <h1>Great ideas.<br />Real connections.<br /><span>Rwandan impact.</span></h1>
+          <p className="hero-intro">A home for the people building what comes next. Connect with engineers, researchers, and students advancing technology across Rwanda.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our community <span aria-hidden>↗</span></a>
+            <Link href="/events" className="btn btn-outline">Explore events <span aria-hidden>→</span></Link>
+          </div>
+          <div className="hero-footnote"><span className="h-2 w-2 rounded-full bg-teal" /> Rooted in Rwanda. Connected to the world.</div>
         </div>
-      )}
-
-      {/* mobile background (video is desktop-only) */}
-      <Image
-        src="/img/hero-net.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center lg:hidden"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/40 lg:hidden" />
-
-      <div className="container-x relative z-10 py-16">
-        <div className="max-w-xl">
-        <LogoBadge size="h-20" />
-        <p className="mt-7 font-display text-sm italic text-gold">
-          Welcome to IEEE Rwanda Subsection
-        </p>
-        <h1 className="mt-4 max-w-[18ch] font-display text-3xl font-extrabold uppercase leading-[1.08] tracking-tight sm:text-4xl lg:text-5xl">
-          Harnessing <span className="text-[#3aa6e0]">African Ingenuity</span> to
-          Advance <span className="text-[#3aa6e0]">Technology</span> for Humanity.
-        </h1>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-cloud/80">
-          {SECTION.tagline}
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-6">
-          <a
-            href={SECTION.joinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-          >
-            Become a member
-          </a>
-          {HERO_VIDEO_ID && <LaunchVideo id={HERO_VIDEO_ID} />}
-        </div>
-        </div>
+        <figure className="hero-photo">
+          <Image src="/img/community.jpg" alt="Members connecting at an IEEE Rwanda community gathering" fill preload sizes="(max-width: 900px) 100vw, 50vw" className="object-cover" />
+          <figcaption><span className="label">Our community</span><p>People make progress possible.</p><Link href="/student-branches">Find your community <span aria-hidden>↗</span></Link></figcaption>
+        </figure>
       </div>
+      <div className="community-strip container-x"><span className="label">Find your people</span><Link href="/student-branches">Student branches ↗</Link><Link href="/student-branches#chapters">Technical societies ↗</Link><Link href="/student-branches#affinity-groups">Affinity groups ↗</Link><a href="https://sac.ieeerwanda.org/" target="_blank" rel="noopener noreferrer">Student activities ↗</a></div>
     </section>
   );
 }
 
-/* ---------- About (blue gradient card with photo) ---------- */
-
 export function AboutBlock() {
   return (
-    <Section alt>
-      <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-blue to-blue-ink text-cloud">
-        <div className="grid items-center gap-8 p-8 sm:p-10 lg:grid-cols-2 lg:gap-12 lg:p-12">
-          <div>
-            <p className="text-base leading-relaxed text-cloud/90">
-              IEEE Rwanda is a local chapter of the Institute of Electrical and
-              Electronics Engineers. We serve Rwanda&apos;s engineering and
-              technology community by providing a platform for professional
-              development, technical excellence, and innovation.
-            </p>
-            <span className="mt-7 block h-px w-12 bg-cloud/40" />
-            <h2 className="mt-6 font-display text-2xl font-bold sm:text-3xl">
-              Driving Rwanda&apos;s Tech Transformation
-            </h2>
-          </div>
-
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-            <Image
-              src="/img/about.jpg"
-              alt="Engineer installing solar panels"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
+    <Section>
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
+        <div><p className="label text-blue">A local community. A global network.</p><h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl">Engineering starts with people.</h2></div>
+        <div><p className="text-lg leading-relaxed text-ink-soft">IEEE Rwanda Subsection brings students, researchers, and professionals together to learn, share ideas, and put technology to work. From a first campus workshop to a global research collaboration, there is a place for you here.</p><Link href="/about" className="link-underline mt-6 inline-flex font-semibold text-blue">Get to know IEEE Rwanda →</Link></div>
       </div>
     </Section>
   );
@@ -114,20 +61,20 @@ export function FocusGrid() {
       <SectionHead
         center
         eyebrow="Key Focus Areas"
-        title="Pioneering Progress"
-        intro="We concentrate on sectors pivotal to the Sustainable Development Goals, leveraging technology to solve local challenges."
+        title="Ideas with a purpose."
+        intro="Explore the fields where our members connect technical knowledge with local challenges."
       />
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {FOCUS_AREAS.map((f) => (
           <article
             key={f.title}
-            style={{ backgroundColor: f.color }}
-            className="rounded-lg p-7 text-cloud transition-transform duration-200 hover:-translate-y-1"
+            style={{ borderTopColor: f.color }}
+            className="rounded-xl border border-line border-t-4 bg-paper p-8 text-navy transition-transform duration-200 hover:-translate-y-1"
           >
             <FocusGlyph name={f.icon} className="h-9 w-9" />
             <h3 className="mt-5 font-display text-xl font-bold">{f.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-cloud/90">{f.blurb}</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">{f.blurb}</p>
           </article>
         ))}
       </div>
@@ -165,6 +112,17 @@ export function SubunitsList({
               {u.name}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-ink-soft">{u.blurb}</p>
+            {u.url && (
+              <a
+                href={u.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline mt-auto inline-flex items-center gap-1 self-start pt-5 text-sm font-semibold text-blue"
+              >
+                Visit website
+                <span aria-hidden>→</span>
+              </a>
+            )}
           </article>
         ))}
       </div>
@@ -185,6 +143,7 @@ export function GroupList({
   title,
   intro,
   items,
+  id,
   accent = "blue",
   alt = false,
 }: {
@@ -192,11 +151,12 @@ export function GroupList({
   title: string;
   intro?: string;
   items: Group[];
+  id?: string;
   accent?: "blue" | "cyan" | "teal";
   alt?: boolean;
 }) {
   return (
-    <Section alt={alt}>
+    <Section alt={alt} id={id}>
       <SectionHead center eyebrow={eyebrow} title={title} intro={intro} />
       {items.length > 0 ? (
         <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
@@ -315,50 +275,12 @@ export function TeamBlock({
 
 /* ---------- Events ---------- */
 
-export function EventsBlock({
-  alt = false,
-  head = true,
-}: {
-  alt?: boolean;
-  head?: boolean;
-}) {
+export function EventsBlock({ alt = false, head = true }: { alt?: boolean; head?: boolean }) {
   return (
     <Section alt={alt}>
-      {head && (
-        <SectionHead
-          center
-          eyebrow="Events & Programmes"
-          title="Workshops, Hackathons & Technical Talks"
-          intro="Our subunits run a steady, year-round calendar of hands-on events — from robotics deep-dives to grid-efficiency research and leadership forums."
-        />
-      )}
-      <div className={`${head ? "mt-12" : ""} grid gap-5 sm:grid-cols-2`}>
-        {EVENTS.map((e) => (
-          <article
-            key={e.title}
-            className="rounded-lg border border-line bg-paper p-7 shadow-sm"
-          >
-            {e.image && (
-              <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-lg">
-                <Image
-                  src={e.image}
-                  alt={e.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
-            <span className="label rounded-full bg-blue-pale px-3 py-1 text-blue">
-              {e.kind}
-            </span>
-            <h3 className="mt-4 font-display text-lg font-bold leading-snug text-navy">
-              {e.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{e.blurb}</p>
-          </article>
-        ))}
-      </div>
+      {head && <div className="mb-10 flex flex-wrap items-end justify-between gap-6"><SectionHead eyebrow="Events & programmes" title="Meet. Learn. Build." intro="The conversations, workshops, and shared experiences moving our community forward." /><Link href="/events" className="link-underline font-semibold text-blue">All events →</Link></div>}
+      {!head && <h2 className="sr-only">Event calendar</h2>}
+      <EventDirectory compact={head} initialToday={kigaliDate()} />
     </Section>
   );
 }
@@ -373,8 +295,8 @@ export function TestimonialsBlock({ alt = false }: { alt?: boolean }) {
         <div className="relative">
           <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
             <Image
-              src="/img/community.jpg"
-              alt="IEEE Rwanda members at a community event"
+              src="/img/landing/ieee-rwanda-flickr-hero.jpg"
+              alt="IEEE Rwanda volunteers working together at the subsection launch"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -465,33 +387,5 @@ export function ContactBlock({
         </div>
       </div>
     </Section>
-  );
-}
-
-/* ---------- CTA band ---------- */
-
-export function CtaBand() {
-  return (
-    <section className="bg-blue text-cloud">
-      <div className="container-x flex flex-col items-start justify-between gap-6 py-12 sm:flex-row sm:items-center">
-        <div>
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
-            Ready to build the future with us?
-          </h2>
-          <p className="mt-2 max-w-xl text-cloud/80">
-            Become part of a global network of over 400,000 engineers and
-            technologists.
-          </p>
-        </div>
-        <a
-          href={SECTION.joinUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-light flex-none"
-        >
-          Become a member
-        </a>
-      </div>
-    </section>
   );
 }

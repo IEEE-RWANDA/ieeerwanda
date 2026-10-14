@@ -1,28 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Archivo, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SECTION } from "@/lib/content";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
-const sans = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
+const sans = localFont({
+  src: "./fonts/inter.woff2",
+  variable: "--font-body-face",
   display: "swap",
 });
 
-const display = Archivo({
-  variable: "--font-display",
-  subsets: ["latin"],
+const display = localFont({
+  src: "./fonts/archivo.woff2",
+  variable: "--font-heading-face",
   display: "swap",
-  weight: ["600", "700", "800"],
+  weight: "600 800",
 });
 
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
+const mono = localFont({
+  src: [{ path: "./fonts/plex-mono-400.woff2", weight: "400" }, { path: "./fonts/plex-mono-500.woff2", weight: "500" }],
+  variable: "--font-utility-face",
   display: "swap",
-  weight: ["400", "500"],
 });
 
 const description = `${SECTION.tagline} ${SECTION.org}, part of IEEE Region 8.`;
@@ -62,8 +61,9 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

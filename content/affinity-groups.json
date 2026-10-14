@@ -5,10 +5,12 @@
   },
   {
     "name": "Young Professionals (YP)",
-    "blurb": "Supporting recent graduates and early-career members as they transition from student life into the profession."
+    "blurb": "Supporting recent graduates and early-career members as they transition from student life into the profession.",
+    "url": "https://yp.ieeerwanda.org/"
   },
   {
     "name": "SIGHT",
-    "blurb": "Special Interest Group on Humanitarian Technology — applying engineering to local development challenges."
+    "blurb": "Special Interest Group on Humanitarian Technology — applying engineering to local development challenges.",
+    "url": "https://sight.ieeerwanda.org/"
   }
 ]

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/app/components/ui";
-import { CtaBand, EventsBlock } from "@/app/components/Sections";
+import { EventsBlock } from "@/app/components/Sections";
 
 export const metadata: Metadata = { title: "Events" };
 
@@ -10,11 +10,10 @@ export default function EventsPage() {
       <PageHero
         crumb="Events"
         eyebrow="Events & programmes"
-        title="Workshops, hackathons, and technical talks"
-        subtitle="Our subunits run a steady, year-round calendar of hands-on events — from robotics deep-dives to grid-efficiency research and leadership forums."
+        title="Where our community comes together."
+        subtitle="Explore upcoming workshops and gatherings, and look back at the moments we have shared. All event times are in Central Africa Time (CAT)."
       />
       <EventsBlock head={false} />
-      <CtaBand />
     </>
   );
 }
