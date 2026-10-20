@@ -130,7 +130,8 @@ export const SUBUNITS: Subunit[] = [
     name: "Carnegie Mellon University Africa",
     short: "CMU-Africa",
     blurb:
-      "Leading cutting-edge research, including the UMURIRO initiative that enhances power-grid efficiency between Rwanda and Uganda.",
+      "Grooming the next generation of African tech leaders through events, outreach, mentorship and innovation.",
+    url: "https://cmuafrica.ieeerwanda.org/",
   },
   {
     name: "University of Rwanda",
