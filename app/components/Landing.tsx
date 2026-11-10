@@ -12,13 +12,13 @@ export function LandingHero() {
         <h1 id="landing-title">Together,<br />we engineer<br /><em>what’s next.</em></h1>
         <p className="landing-hero-intro">Rwandan ingenuity. Global possibility.<br />A community of people turning technical curiosity into a better tomorrow.</p>
         <div className="landing-hero-actions">
-          <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn landing-join">Find your place <span aria-hidden>↗</span></a>
-          <Link href="/events" className="landing-text-link">Explore our events <span aria-hidden>→</span></Link>
+          <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn landing-join">Find your place</a>
+          <Link href="/events" className="landing-text-link">Explore our events</Link>
         </div>
       </div>
       <div className="container-x landing-hero-bottom">
         <p><span className="label">Local roots. Global reach.</span><br />Kigali, Rwanda · IEEE Region 8</p>
-        <a href="#discover" className="landing-scroll">Discover the community <span aria-hidden>↓</span></a>
+        <a href="#discover" className="landing-scroll">Discover the community</a>
       </div>
     </section>
   );
@@ -41,7 +41,7 @@ export function LandingIntro() {
         <div className="landing-paths">
           {paths.map(path => (
             <Link key={path.title} href={path.href} className="landing-path">
-              <h3>{path.title}<span aria-hidden>↗</span></h3>
+              <h3>{path.title}</h3>
               <p>{path.text}</p>
               <span className="label">{path.label}</span>
             </Link>
@@ -65,7 +65,7 @@ export function LandingStory() {
           <h2>One community.<br />A world of<br /><span>possibility.</span></h2>
           <p>On 17 July 2026, students, engineers, researchers, and partners came together to launch the IEEE Rwanda Subsection.</p>
           <p>That was a beginning. The work continues in our workshops, on university campuses, and in the connections we build with industry.</p>
-          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7482450069162463233/" target="_blank" rel="noopener noreferrer" className="landing-text-link">Revisit the launch <span aria-hidden>↗</span></a>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7482450069162463233/" target="_blank" rel="noopener noreferrer" className="landing-text-link">Revisit the launch</a>
         </div>
       </div>
     </section>
@@ -84,12 +84,12 @@ export function LandingCommunities() {
         <div className="landing-branches">
           {SUBUNITS.map(branch => (
             <a key={branch.short} href={branch.url ?? "/student-branches"} className="landing-branch" {...(branch.url ? {target:"_blank",rel:"noopener noreferrer"} : {})}>
-              <span className="label">Student branch</span><strong>{branch.short}</strong><span>{branch.name}</span><span className="landing-branch-arrow" aria-hidden>↗</span>
+              <span className="label">Student branch</span><strong>{branch.short}</strong><span>{branch.name}</span>
             </a>
           ))}
         </div>
         <div className="landing-group-links">
-          {groups.map(group => <a key={group.name} href={group.url ?? "/student-branches"} {...(group.url ? {target:"_blank",rel:"noopener noreferrer"} : {})}>{group.name}<span aria-hidden>↗</span></a>)}
+          {groups.map(group => <a key={group.name} href={group.url ?? "/student-branches"} {...(group.url ? {target:"_blank",rel:"noopener noreferrer"} : {})}>{group.name}</a>)}
         </div>
       </div>
     </section>

@@ -27,17 +27,17 @@ export function HomeHero() {
           <h1>Great ideas.<br />Real connections.<br /><span>Rwandan impact.</span></h1>
           <p className="hero-intro">A home for the people building what comes next. Connect with engineers, researchers, and students advancing technology across Rwanda.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our community <span aria-hidden>↗</span></a>
-            <Link href="/events" className="btn btn-outline">Explore events <span aria-hidden>→</span></Link>
+            <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Join our community</a>
+            <Link href="/events" className="btn btn-outline">Explore events</Link>
           </div>
           <div className="hero-footnote"><span className="h-2 w-2 rounded-full bg-teal" /> Rooted in Rwanda. Connected to the world.</div>
         </div>
         <figure className="hero-photo">
           <Image src="/img/community.jpg" alt="Members connecting at an IEEE Rwanda community gathering" fill preload sizes="(max-width: 900px) 100vw, 50vw" className="object-cover" />
-          <figcaption><span className="label">Our community</span><p>People make progress possible.</p><Link href="/student-branches">Find your community <span aria-hidden>↗</span></Link></figcaption>
+          <figcaption><span className="label">Our community</span><p>People make progress possible.</p><Link href="/student-branches">Find your community</Link></figcaption>
         </figure>
       </div>
-      <div className="community-strip container-x"><span className="label">Find your people</span><Link href="/student-branches">Student branches ↗</Link><Link href="/student-branches#chapters">Technical societies ↗</Link><Link href="/student-branches#affinity-groups">Affinity groups ↗</Link><a href="https://sac.ieeerwanda.org/" target="_blank" rel="noopener noreferrer">Student activities ↗</a></div>
+      <div className="community-strip container-x"><span className="label">Find your people</span><Link href="/student-branches">Student branches</Link><Link href="/student-branches#chapters">Technical societies</Link><Link href="/student-branches#affinity-groups">Affinity groups</Link><a href="https://sac.ieeerwanda.org/" target="_blank" rel="noopener noreferrer">Student activities</a></div>
     </section>
   );
 }
@@ -47,7 +47,7 @@ export function AboutBlock() {
     <Section>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
         <div><p className="label text-blue">A local community. A global network.</p><h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl">Engineering starts with people.</h2></div>
-        <div><p className="text-lg leading-relaxed text-ink-soft">IEEE Rwanda Subsection brings students, researchers, and professionals together to learn, share ideas, and put technology to work. From a first campus workshop to a global research collaboration, there is a place for you here.</p><Link href="/about" className="link-underline mt-6 inline-flex font-semibold text-blue">Get to know IEEE Rwanda →</Link></div>
+        <div><p className="text-lg leading-relaxed text-ink-soft">IEEE Rwanda Subsection brings students, researchers, and professionals together to learn, share ideas, and put technology to work. From a first campus workshop to a global research collaboration, there is a place for you here.</p><Link href="/about" className="link-underline mt-6 inline-flex font-semibold text-blue">Get to know IEEE Rwanda</Link></div>
       </div>
     </Section>
   );
@@ -120,7 +120,7 @@ export function SubunitsList({
                 className="link-underline mt-auto inline-flex items-center gap-1 self-start pt-5 text-sm font-semibold text-blue"
               >
                 Visit website
-                <span aria-hidden>→</span>
+
               </a>
             )}
           </article>
@@ -177,7 +177,7 @@ export function GroupList({
                   className="link-underline mt-auto inline-flex items-center gap-1 self-start pt-5 text-sm font-semibold text-blue"
                 >
                   Visit website
-                  <span aria-hidden>→</span>
+
                 </a>
               )}
             </article>
@@ -278,7 +278,7 @@ export function TeamBlock({
 export function EventsBlock({ alt = false, head = true }: { alt?: boolean; head?: boolean }) {
   return (
     <Section alt={alt}>
-      {head && <div className="mb-10 flex flex-wrap items-end justify-between gap-6"><SectionHead eyebrow="Events & programmes" title="Meet. Learn. Build." intro="The conversations, workshops, and shared experiences moving our community forward." /><Link href="/events" className="link-underline font-semibold text-blue">All events →</Link></div>}
+      {head && <div className="mb-10 flex flex-wrap items-end justify-between gap-6"><SectionHead eyebrow="Events & programmes" title="Meet. Learn. Build." intro="The conversations, workshops, and shared experiences moving our community forward." /><Link href="/events" className="link-underline font-semibold text-blue">All events</Link></div>}
       {!head && <h2 className="sr-only">Event calendar</h2>}
       <EventDirectory compact={head} initialToday={kigaliDate()} />
     </Section>
@@ -310,7 +310,7 @@ export function TestimonialsBlock({ alt = false }: { alt?: boolean }) {
               Get in <span className="text-blue">Touch</span>
             </span>
             <span className="mt-1 flex items-center gap-1.5 text-sm font-semibold text-blue">
-              Reach the team →
+              Reach the team
             </span>
           </Link>
         </div>

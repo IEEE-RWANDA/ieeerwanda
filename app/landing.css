@@ -36,7 +36,6 @@
 .landing-path > .label { color: var(--color-blue); font-size: .65rem; }
 .landing-events > section { background: var(--landing-mist); padding-block: 90px; }
 .landing-events .event-calendar { border: none; }
-.landing-events .event-row:last-child { border-bottom: 0; }
 .landing-story { background: var(--landing-deep); color: white; padding: 95px 0; }
 .landing-story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
 .landing-story-photo { position: relative; height: 620px; overflow: hidden; border-radius: 3px 3px 90px 3px; }
@@ -58,8 +57,7 @@
 .landing-branch:hover { background: #e1eef4; transform: translateY(-4px); }
 .landing-branch > .label { font-size: .6rem; color: var(--color-blue); }
 .landing-branch strong { font-family: var(--font-display); font-size: clamp(2rem,3.4vw,3.3rem); letter-spacing: -.05em; margin-block: 30px 10px; }
-.landing-branch > span:not(.label):not(.landing-branch-arrow) { font-size: .8rem; max-width: 80%; line-height: 1.6; }
-.landing-branch-arrow { position: absolute; right: 25px; bottom: 25px; font-size: 1.5rem; }
+.landing-branch > span:not(.label) { font-size: .8rem; max-width: 80%; line-height: 1.6; }
 .landing-group-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .landing-group-links a { display: inline-flex; align-items: center; gap: 15px; font-size: .75rem; color: var(--color-ink-soft); padding: 13px 17px; border: 1px solid var(--color-line); border-radius: 30px; transition: color .2s, border-color .2s; }
 .landing-group-links a:hover { border-color: var(--color-blue); color: var(--color-blue); }

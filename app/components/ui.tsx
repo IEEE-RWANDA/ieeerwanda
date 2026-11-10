@@ -121,25 +121,19 @@ export function ArrowLink({
   external?: boolean;
   light?: boolean;
 }) {
-  const cls = `link-underline group inline-flex items-center gap-1.5 text-sm font-semibold ${
+  const cls = `link-underline inline-flex items-center text-sm font-semibold ${
     light ? "text-cloud" : "text-blue"
   }`;
-  const inner = (
-    <>
-      {children}
-      <span className="transition-transform group-hover:translate-x-0.5">→</span>
-    </>
-  );
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>
-        {inner}
+        {children}
       </a>
     );
   }
   return (
     <Link href={href} className={cls}>
-      {inner}
+      {children}
     </Link>
   );
 }

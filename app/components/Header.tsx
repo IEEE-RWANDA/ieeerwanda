@@ -15,7 +15,6 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 shadow-sm">
-      <div className="bg-navy-2 text-cloud/70"><div className="container-x flex items-center justify-between py-2 text-[0.65rem] tracking-wide"><span>IEEE Rwanda Subsection</span><a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">Part of the global IEEE community ↗</a></div></div>
       <nav aria-label="Main navigation" className="bg-navy">
         {/* desktop: logo left, centered links */}
         <div className="container-x hidden items-center justify-between lg:flex">
@@ -42,7 +41,7 @@ export default function Header() {
               );
             })}
           </ul>
-          <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-light">Join IEEE ↗</a>
+          <a href={SECTION.joinUrl} target="_blank" rel="noopener noreferrer" className="btn btn-light">Join IEEE</a>
         </div>
 
         {/* mobile: logo + hamburger */}

@@ -17,7 +17,7 @@ export const SECTION = {
   tagline:
     "Connecting engineers, technologists, and researchers to foster collaboration and innovation across Rwanda's growing technology sector.",
   // TODO: confirm a real public contact address for the section.
-  contactEmail: "ieee.rwanda@ieee.org",
+  contactEmail: "rwanda@ieee.org",
   joinUrl: "https://www.ieee.org/membership/join/index.html",
 };
 
