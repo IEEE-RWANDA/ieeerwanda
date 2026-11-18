@@ -8,6 +8,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        compact
         crumb="Contact"
         eyebrow="Get involved"
         title="Join the movement"
