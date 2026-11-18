@@ -25,15 +25,17 @@ export function PageHero({
   title,
   subtitle,
   crumb,
+  compact = false,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   crumb: string;
+  compact?: boolean;
 }) {
   return (
     <section className="page-hero bg-navy text-cloud">
-      <div className="container-x py-14 sm:py-20">
+      <div className={`container-x ${compact ? "py-7 sm:py-9" : "py-14 sm:py-20"}`}>
         <nav aria-label="Breadcrumb" className="label flex items-center gap-2 text-cloud/70">
           <Link href="/" className="hover:text-cloud">
             Home
@@ -42,12 +44,12 @@ export function PageHero({
           <span className="text-gold">{crumb}</span>
         </nav>
 
-        <p className="label mt-6 text-cloud/80">{eyebrow}</p>
-        <h1 className="mt-3 max-w-[24ch] font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
+        <p className={`label text-cloud/80 ${compact ? "mt-4" : "mt-6"}`}>{eyebrow}</p>
+        <h1 className={`font-display font-bold leading-[1.05] tracking-tight ${compact ? "mt-2 text-3xl sm:text-4xl" : "mt-3 max-w-[24ch] text-4xl sm:text-6xl"}`}>
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-cloud/85">
+          <p className={`max-w-2xl leading-relaxed text-cloud/85 ${compact ? "mt-3 text-base" : "mt-5 text-lg"}`}>
             {subtitle}
           </p>
         )}
