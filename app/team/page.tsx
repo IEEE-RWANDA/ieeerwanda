@@ -8,7 +8,6 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        compact
         crumb="Team"
         eyebrow="Our team"
         title="The volunteers leading IEEE Rwanda"

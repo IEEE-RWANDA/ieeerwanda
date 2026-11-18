@@ -20,7 +20,6 @@ export default function EventsPage() {
   return (
     <>
       <PageHero
-        compact
         crumb="Events"
         eyebrow="Events & programmes"
         title="Where our community comes together."

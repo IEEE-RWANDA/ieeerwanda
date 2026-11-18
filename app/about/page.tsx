@@ -12,7 +12,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        compact
         crumb="About"
         eyebrow="About the Subsection"
         title="About IEEE Rwanda"

@@ -9,7 +9,6 @@ export default function StudentBranchesPage() {
   return (
     <>
       <PageHero
-        compact
         crumb="Communities"
         eyebrow="Where We're Active"
         title="Student Branches, Chapters & Communities"
