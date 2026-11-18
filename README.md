@@ -20,7 +20,17 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+
+## Public events calendar
+
+1. In Google Calendar, create **IEEE Rwanda Subsection Events** under the Subsection’s account. Set its timezone to **Africa/Kigali** and make it public with **See all event details**.
+2. Share the calendar with the designated committee publishers and give them **Make changes to events** (or **Make changes and see event details** if shown). Editors can change events across the shared calendar.
+3. When publishing an event, select **IEEE Rwanda Subsection Events** and enter the title, date and time, venue or online location, and event details. Put the registration link in the description.
+4. If the calendar is replaced, update its Google Calendar shareable link and public iCal address in `app/events/page.tsx`.
+
+Events published on the shared calendar reach subscribers as their calendar apps refresh. The site’s event directory uses `content/events.json` and is maintained separately.
+
+## Next.js resources
 
 To learn more about Next.js, take a look at the following resources:
 
